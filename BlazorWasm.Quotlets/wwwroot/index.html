@@ -49,6 +49,30 @@
     <script src="_framework/blazor.webassembly.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
 
+    <script>
+        window.loadJs = function (sourceUrl) {
+            if (sourceUrl.Length == 0) {
+                console.error("Invalid source URL");
+                return;
+            }
+            $('[data-id="script"]').remove();
+            var tag = document.createElement('script');
+            tag.src = sourceUrl;
+            tag.type = "text/javascript";
+            tag.setAttribute('data-id', 'script');
+
+            tag.onload = function () {
+                console.log("Script loaded successfully");
+            }
+
+            tag.onerror = function () {
+                console.error("Failed to load script");
+            }
+
+            document.body.appendChild(tag);
+        }
+    </script>
+
     <!--plugins -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
@@ -57,10 +81,10 @@
     <script src="assets/js/masonry.min.js"></script>
     <script src="assets/js/theia-sticky-sidebar.min.js"></script>
     <script src="assets/js/ajax-contact.js"></script>
-    <script src="assets/js/switch.js"></script>
+    <!-- <script src="assets/js/switch.js"></script> -->
 
     <!-- JS main  -->
-    <script src="assets/js/main.js"></script>
+    <!-- <script src="assets/js/main.js"></script> -->
 </body>
 
 </html>
