@@ -11,20 +11,27 @@ namespace BlazorWasm.Quotlets.Services
         {
             _httpClient = httpClient;
         }
+
         public async Task<QuotletsResponseModel?> GetQuotlets
-            (int pageNo = 1,int pageSize = 12)
+            (int pageNo = 1, int pageSize = 12)
         {
-           var quotList = await GetData<QuotletsModel>("quotlets/Quotlets.json");
+            var quotList = await GetData<QuotletsModel>("data/Quotlets.json");
             var count = quotList!.Count();
             var totalPage = count / pageSize;
             if (totalPage % pageSize == 0)
                 totalPage++;
             var model = new QuotletsResponseModel
             {
-                Data = quotList!.Skip((pageNo-1) * pageSize).Take(pageSize).ToList(),
+                Data = quotList!.Skip((pageNo - 1) * pageSize).Take(pageSize).ToList(),
                 TotalPage = totalPage,
             };
             return model;
+        }
+
+        public async Task<List<UserModel>> GetUsers()
+        {
+            var result = await GetData<UserModel>("data/User.json");
+            return result!;
         }
 
         private async Task<List<T>?> GetData<T>(string fileName)

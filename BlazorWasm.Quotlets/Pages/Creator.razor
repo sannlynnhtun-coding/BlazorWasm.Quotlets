@@ -1,0 +1,21 @@
+﻿@{
+    var userData = UserData.FirstOrDefault(x => x.UserId == UserId);
+}
+<ul class="entry-meta list-inline">
+    <li class="post-author-img">
+        <NavLink Href="@userData.UserName">
+            <img src="img/user/@(userData.UserId).jpg" alt="">
+        </NavLink>
+    </li>
+    <li class="post-author">
+        <NavLink Href="@userData.UserName">
+            @(userData.FullName)
+        </NavLink>
+    </li>
+</ul>
+@code {
+    [Parameter] 
+    public int UserId { get; set; }
+    [Parameter]
+    public List<UserModel> UserData { get; set; }
+}

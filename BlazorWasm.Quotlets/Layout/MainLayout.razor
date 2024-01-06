@@ -15,7 +15,15 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="copyright">
-                        <p>© Copyright 2021 <a href="#">AssiaGroupe</a>, All rights reserved.</p>
+                        @if (DateTime.Now.Year == 2024)
+                        {
+                            _year = DateTime.Now.Year.ToString();
+                        }
+                        else
+                        {
+                            _year = $"{DateTime.Now.Year - 2023} - {DateTime.Now.Year}";
+                        }
+                        <p>© Copyright @_year. All rights reserved.</p>
                     </div>
                     <div class="back">
                         <a href="#" class="back-top">
@@ -50,3 +58,6 @@
 <MudThemeProvider/>
 <MudDialogProvider/>
 <MudSnackbarProvider/>
+@code {
+    private string _year { get; set; }
+}

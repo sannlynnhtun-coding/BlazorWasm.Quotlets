@@ -1,11 +1,4 @@
-﻿@page "/"
-@using BlazorWasm.Quotlets.Services
-@using BlazorWasm.Quotlets.Models
-@inject IJSRuntime JsRuntime
-@inject QuotletsService Service
-@using MudBlazor
-
-<!--masonry-layout-->
+﻿<!--masonry-layout-->
 <section>
     <div class="container-fluid">
         <div class="row masonry-items">
@@ -121,4 +114,40 @@
                        Class="mt-0 pt-0">
         </MudPagination>
     </div>
+}
+
+@code {
+
+    [Parameter]
+    public QuotletsResponseModel? QuotletsData { get; set; }
+    [Parameter]
+    public List<UserModel> UserData { get; set; }
+
+    protected override Task OnParametersSetAsync()
+    {
+        return base.OnParametersSetAsync();
+    }
+
+    private async Task LoadJavaScript()
+    {
+        await Task.Delay(1000);
+        await JsRuntime.InvokeVoidAsync("loadJs", new string[]
+        {
+                "assets/js/switch.js",
+                "assets/js/main.js"
+        }.ToList());
+    }
+
+    private async Task PageChanged(int pageNo)
+    {
+        await Init(pageNo);
+    }
+
+    private async Task Init(int pageNo)
+    {
+        QuotletsData = await Service.GetQuotlets(pageNo);
+        UserData = await Service.GetUsers();
+        StateHasChanged();
+        await LoadJavaScript();
+    }
 }

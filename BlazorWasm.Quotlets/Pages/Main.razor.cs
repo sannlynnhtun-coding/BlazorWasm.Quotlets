@@ -7,6 +7,7 @@ namespace BlazorWasm.Quotlets.Pages
     public partial class Main
     {
         private QuotletsResponseModel? QuotletsData { get; set; }
+        private List<UserModel> UserData { get; set; }
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
@@ -33,6 +34,7 @@ namespace BlazorWasm.Quotlets.Pages
         private async Task Init(int pageNo)
         {
             QuotletsData = await Service.GetQuotlets(pageNo);
+            UserData = await Service.GetUsers();
             StateHasChanged();
             await LoadJavaScript();
         }
