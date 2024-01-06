@@ -81,12 +81,16 @@ Table of Content
            Masonry
     ----------------------------------- */
     $(window).on("load resize", function () {
+        resizeEvent();
+    });
+
+    function resizeEvent() {
         // Masonry
         $(".masonry-items").masonry({
-          itemSelector: ".masonry-item",
-          columnWidth: ".masonry-item",
+            itemSelector: ".masonry-item",
+            columnWidth: ".masonry-item",
         });
-      });
+    }
 
     /* -----------------------------------
           slider style 1
@@ -282,7 +286,11 @@ Table of Content
         },
       });
 
-   
+/* -----------------------------------
+        resize event
+-----------------------------------*/
+    resizeEvent();
+
 })(jQuery);
 
 
