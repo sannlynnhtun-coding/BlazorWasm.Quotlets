@@ -52,27 +52,37 @@
     <script>navigator.serviceWorker.register('service-worker.js');</script>
 
     <script>
-        window.loadJs = function (sourceUrl) {
-            if (sourceUrl.Length == 0) {
-                console.error("Invalid source URL");
+        window.loadJs = function (sourceUrls) {
+            // console.log({ sourceUrls });
+            if (!Array.isArray(sourceUrls) || sourceUrls.length === 0) {
+                console.error("Invalid source URLs");
                 return;
             }
+
             $('[data-id="script"]').remove();
-            var tag = document.createElement('script');
-            tag.src = sourceUrl;
-            tag.type = "text/javascript";
-            tag.setAttribute('data-id', 'script');
 
-            tag.onload = function () {
-                console.log("Script loaded successfully");
-            }
+            sourceUrls.forEach(function (sourceUrl) {
+                if (typeof sourceUrl !== "string" || sourceUrl.length === 0) {
+                    console.error("Invalid source URL in the array");
+                    return;
+                }
 
-            tag.onerror = function () {
-                console.error("Failed to load script");
-            }
+                var tag = document.createElement('script');
+                tag.src = sourceUrl;
+                tag.type = "text/javascript";
+                tag.setAttribute('data-id', 'script');
 
-            document.body.appendChild(tag);
-        }
+                tag.onload = function () {
+                    console.log("Script loaded successfully: " + sourceUrl);
+                };
+
+                tag.onerror = function () {
+                    console.error("Failed to load script: " + sourceUrl);
+                };
+
+                document.body.appendChild(tag);
+            });
+        };
     </script>
     <!--plugins -->
     <script src="assets/js/jquery.min.js"></script>
