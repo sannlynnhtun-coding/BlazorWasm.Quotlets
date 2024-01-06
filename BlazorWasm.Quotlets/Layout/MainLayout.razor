@@ -1,335 +1,166 @@
 ﻿@inherits LayoutComponentBase
-<main>
-      <!-- Preloader -->
-      <div
-        class="preloader-wrap"
-        data-firstline="Stay"
-        data-secondline="Relaxed"
-      >
-        <div class="outer">
-          <div class="inner">
-            <div class="trackbar">
-              <div class="preloader-intro">
-                <span>Loading</span>
-              </div>
-              <div class="loadbar"></div>
-              <div class="percentage-wrapper">
-                <div class="percentage" id="precent"></div>
-              </div>
-            </div>
+<div id="wrapper" class="wrapper">
+    <!--loading -->
+    @* <div class="loading">
+        <div class="circle"></div>
+    </div> *@
+    <!--/-->
+    <!-- Header -->
+    <header class="header fixed-top">
+        <div class="header-main navbar-expand-xl">
+            <div class="container-fluid">
+                <div class="header-main">
+                    <!-- logo -->
+                    <div class="site-branding">
+                        <a class="dark-logo" href="index.html">
+                            <img src="assets/img/logo/logo-dark.png" alt="">
+                        </a>
+                        <a class="light-logo" href="index.html">
+                            <img src="assets/img/logo/logo-white.png" alt="">
+                        </a>
+                    </div><!--/-->
 
-            <div class="percentage-intro">Please wait, content is loading</div>
-          </div>
-        </div>
-      </div>
-      <!--/Preloader -->
+                    <div class="main-menu header-navbar">
+                        <nav class="navbar">
+                            <!--navbar-collapse-->
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ">
+                                    <!--Homes -->
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle active" href="javascript:void(0)" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
+                                        <ul class="dropdown-menu ">
+                                            <li><a class="dropdown-item active" href="index.html">homepage 1 </a></li>
+                                            <li><a class="dropdown-item" href="index-2.html">homepage 2</a></li>
+                                            <li><a class="dropdown-item" href="index-3.html">homepage 3</a></li>
+                                            <li><a class="dropdown-item" href="index-4.html">homepage 4 </a></li>
+                                            <li><a class="dropdown-item" href="index-5.html">homepage 5 </a></li>
+                                            <li><a class="dropdown-item" href="index-6.html">homepage 6 </a></li>
+                                            <li><a class="dropdown-item" href="index-7.html">homepage 7 </a></li>
+                                            <li><a class="dropdown-item" href="index-8.html">homepage 8 </a></li>
+                                            <li><a class="dropdown-item" href="index-9.html">homepage 9</a></li>
+                                        </ul>
+                                    </li>
 
-      <!--Cd-main-content -->
-      <div class="cd-index cd-main-content">
-        <!-- Page Content -->
-        <div
-          id="page-content"
-          class="light-content home page-template page-template-portfolio-carousel-page page-template-portfolio-carousel-page-php page page-id-17 wp-embed-responsive hidden hidden-ball smooth-scroll uppercase-text rounded-borders"
-          data-bgcolor="#0c0c0c"
-        >
-          <!-- Header -->
-          <header
-            class="invert-header fullscreen-menu"
-            data-menucolor="#0c0c0c"
-          >
-            <div id="header-container">
-              <!-- Logo -->
-              <div id="logo" class="hide-ball">
-                <a
-                  class="ajax-link"
-                  data-type="page-transition"
-                  href="http://clapat-themes.com/wordpress/serano"
-                >
-                  <img
-                    class="black-logo"
-                    src="wp-content/themes/serano/images/logo.png"
-                    alt="Logo Black"
-                  />
-                  <img
-                    class="white-logo"
-                    src="wp-content/themes/serano/images/logo-white.png"
-                    alt="Logo White"
-                  />
-                </a>
-              </div>
-              <!--/Logo -->
+                                    <!--Posts features -->
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="javascript:void(0)" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">Post features</a>
+                                        <ul class="dropdown-menu ">
+                                            <li><a class="dropdown-item " href="post-default.html">post default </a></li>
+                                            <li><a class="dropdown-item" href="post-left-sidebar.html">post left sidebar </a></li>
+                                            <li><a class="dropdown-item" href="post-no-sidebar.html">post no sidebar</a></li>
+                                            <li><a class="dropdown-item" href="post-video.html">post video </a></li>
+                                            <li><a class="dropdown-item" href="post-audio.html">post audio </a></li>
+                                            <li><a class="dropdown-item" href="post-gallery.html">post gallery </a></li>
+                                        </ul>
+                                    </li>
 
-              <nav class="menu-main-menu-container">
-                <div class="nav-height">
-                  <div class="outer">
-                    <div class="inner">
-                      <ul
-                        id="menu-main-menu"
-                        data-breakpoint="10025"
-                        class="flexnav menu"
-                      >
-                        <li
-                          id="menu-item-2600"
-                          class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-2600 link menu-timeline active"
-                        >
-                          <a href="../serano.html#" class="active"
-                            ><div class="before-span">
-                              <span data-hover="Portfolio">Portfolio</span>
-                            </div></a
-                          >
-                          <ul class="sub-menu">
-                            <li
-                              id="menu-item-19"
-                              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-17 current_page_item menu-item-19 link active"
-                            >
-                              <a
-                                href="../serano.html"
-                                aria-current="page"
-                                data-type="page-transition"
-                                class="ajax-link active"
-                                >Showcase Carousel</a
-                              >
-                            </li>
-                            <li
-                              id="menu-item-2599"
-                              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2599 link"
-                            >
-                              <a
-                                href="showcase-grid.html"
-                                data-type="page-transition"
-                                class="ajax-link"
-                                >Showcase Grid</a
-                              >
-                            </li>
-                            <li
-                              id="menu-item-2598"
-                              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2598 link"
-                            >
-                              <a
-                                href="showcase-slider.html"
-                                data-type="page-transition"
-                                class="ajax-link"
-                                >Showcase Slider</a
-                              >
-                            </li>
-                            <li
-                              id="menu-item-2597"
-                              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2597 link"
-                            >
-                              <a
-                                href="showcase-list.html"
-                                data-type="page-transition"
-                                class="ajax-link"
-                                >Showcase List</a
-                              >
-                            </li>
-                            <li
-                              id="menu-item-2596"
-                              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2596 link"
-                            >
-                              <a
-                                href="showcase-reverse.html"
-                                data-type="page-transition"
-                                class="ajax-link"
-                                >Showcase Reverse</a
-                              >
-                            </li>
-                            <li
-                              id="menu-item-2595"
-                              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2595 link"
-                            >
-                              <a
-                                href="showcase-gallery.html"
-                                data-type="page-transition"
-                                class="ajax-link"
-                                >Showcase Gallery</a
-                              >
-                            </li>
-                          </ul>
-                        </li>
-                        <li
-                          id="menu-item-2594"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2594 link menu-timeline"
-                        >
-                          <a
-                            href="about-2.html"
-                            data-type="page-transition"
-                            class="ajax-link"
-                            ><div class="before-span">
-                              <span data-hover="About">About</span>
-                            </div></a
-                          >
-                        </li>
-                        <li
-                          id="menu-item-2583"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2583 link menu-timeline"
-                        >
-                          <a
-                            href="stories.html"
-                            data-type="page-transition"
-                            class="ajax-link"
-                            ><div class="before-span">
-                              <span data-hover="Stories">Stories</span>
-                            </div></a
-                          >
-                        </li>
-                        <li
-                          id="menu-item-2609"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2609 link menu-timeline"
-                        >
-                          <a
-                            href="contact.html"
-                            data-type="page-transition"
-                            class="ajax-link"
-                            ><div class="before-span">
-                              <span data-hover="Contact">Contact</span>
-                            </div></a
-                          >
-                        </li>
-                        <li
-                          id="menu-item-2610"
-                          class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2610 link menu-timeline"
-                        >
-                          <a href="../serano.html#"
-                            ><div class="before-span">
-                              <span data-hover="More">More</span>
-                            </div></a
-                          >
-                          <ul class="sub-menu">
-                            <li
-                              id="menu-item-2613"
-                              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2613 link"
-                            >
-                              <a
-                                href="typography.html"
-                                data-type="page-transition"
-                                class="ajax-link"
-                                >Typography</a
-                              >
-                            </li>
-                            <li
-                              id="menu-item-2612"
-                              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2612 link"
-                            >
-                              <a
-                                href="multimedia.html"
-                                data-type="page-transition"
-                                class="ajax-link"
-                                >Multimedia</a
-                              >
-                            </li>
-                            <li
-                              id="menu-item-2611"
-                              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2611 link"
-                            >
-                              <a
-                                href="shortcodes.html"
-                                data-type="page-transition"
-                                class="ajax-link"
-                                >Shortcodes</a
-                              >
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </nav>
-              <!-- Menu Burger -->
-              <div class="button-wrap right menu burger-lines">
-                <div class="icon-wrap parallax-wrap">
-                  <div class="button-icon parallax-element">
-                    <div id="burger-wrapper">
-                      <div id="menu-burger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="button-text sticky right">
-                  <span data-hover="Menu">Menu</span>
-                </div>
-              </div>
-              <!--/Menu Burger -->
-            </div>
-          </header>
-          <!--/Header -->
+                                    <!--Blogs-->
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link  dropdown-toggle" href="javascript:void(0)" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false"> blogs </a>
+                                        <ul class="dropdown-menu ">
+                                            <li><a class="dropdown-item " href="blog-grid.html">Blog grid</a></li>
+                                            <li><a class="dropdown-item" href="blog-masonry.html">Blog masonry</a></li>
+                                            <li><a class="dropdown-item" href="blog-list.html">Blog list</a></li>
+                                            <li><a class="dropdown-item" href="blog-classic.html">Blog classic</a></li>
+                                        </ul>
+                                    </li>
 
-          <div id="content-scroll">
-            @Body
-                <!-- Footer -->
-                <footer class="hidden">
-                    <div id="footer-container">
-                        <div class="cp-button-prev clapat-button">
-                            <div class="icon-wrap-scale">
-                                <div class="icon-wrap parallax-wrap">
-                                    <div class="button-icon parallax-element">
-                                        <i class="fa-solid fa-arrow-left"></i>
-                                    </div>
-                                </div>
+                                    <!--Pages-->
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false"> pages </a>
+                                        <ul class="dropdown-menu ">
+                                            <li><a class="dropdown-item" href="author.html">author </a></li>
+                                            <li><a class="dropdown-item" href="about.html">about us </a> </li>
+                                            <li><a class="dropdown-item" href="contact.html">contact us</a></li>
+                                            <li><a class="dropdown-item" href="login.html">login</a></li>
+                                            <li><a class="dropdown-item" href="signup.html">Sign up</a></li>
+                                            <li><a class="dropdown-item" href="page404.html">404 page</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <!--contact -->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="contact.html"> contact </a>
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="button-text sticky left">
-                                <span data-hover="Prev">Prev</span>
-                            </div>
+                            <!--/-->
+                        </nav>
+                    </div>
+
+                    <!-- header actions -->
+                    <div class="header-action-items">
+                        <!--header-social-->
+                        <ul class="header-social list-inline">
+                            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        </ul>
+
+                        <!--theme-switch-->
+                        <div class="theme-switch-wrapper switch-icon">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <span class="slider round ">
+                                    <i class="lar la-sun icon-light"></i>
+                                    <i class="lar la-moon icon-dark"></i>
+                                </span>
+                            </label>
                         </div>
 
-                        <div class="cp-button-next clapat-button">
-                            <div class="icon-wrap-scale">
-                                <div class="icon-wrap parallax-wrap">
-                                    <div class="button-icon parallax-element">
-                                        <i class="fa-solid fa-arrow-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="button-text sticky right">
-                                <span data-hover="Next">Next</span>
-                            </div>
-                        </div>
+                        <!--search-icon-->
+                        <div class="search-icon"> <a href="#search">  <i class="fas fa-search"></i></a></div>
+
+                        <!--navbar-toggler-->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
                     </div>
-                </footer>
-                <!--/Footer -->
-            </div>
-            <div class="thumb-wrapper">
-                <div class="thumb-container">
-                    <div class="thumb-page"
-                         data-src="http://clapat-themes.com/wordpress/serano/wp-content/uploads/2023/08/01hero.jpg"></div>
-                    <div class="thumb-page"
-                         data-src="http://clapat-themes.com/wordpress/serano/wp-content/uploads/2023/08/02hero.jpg"></div>
-                    <div class="thumb-page"
-                         data-src="http://clapat-themes.com/wordpress/serano/wp-content/uploads/2023/08/03hero.jpg"></div>
-                    <div class="thumb-page"
-                         data-src="http://clapat-themes.com/wordpress/serano/wp-content/uploads/2023/08/04hero.jpg"></div>
-                    <div class="thumb-page"
-                         data-src="http://clapat-themes.com/wordpress/serano/wp-content/uploads/2023/08/05hero.jpg"></div>
-                    <div class="thumb-page"
-                         data-src="http://clapat-themes.com/wordpress/serano/wp-content/uploads/2023/08/06hero.jpg"></div>
-                    <div class="thumb-page"
-                         data-src="http://clapat-themes.com/wordpress/serano/wp-content/uploads/2023/08/07hero.jpg"></div>
-                    <div class="thumb-page"
-                         data-src="http://clapat-themes.com/wordpress/serano/wp-content/uploads/2023/08/08hero.jpg"></div>
                 </div>
             </div>
-
-            <div id="app"></div>
         </div>
-        <!--/Page Content -->
-    </div>
-    <!--/Cd-main-content -->
-</main>
-<!--/Main -->
+    </header><!--/-->
+    <!--/-->
+    <main class="main">
+        @Body
+    </main>
 
-<div class="cd-cover-layer"></div>
-<div id="magic-cursor">
-    <div id="ball">
-        <div id="ball-drag-x"></div>
-        <div id="ball-drag-y"></div>
-        <div id="ball-loader"></div>
+    <!--footer-->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="copyright">
+                        <p>© Copyright 2021 <a href="#">AssiaGroupe</a>, All rights reserved.</p>
+                    </div>
+                    <div class="back">
+                        <a href="#" class="back-top">
+                            <i class="fas fa-arrow-up"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--Search-form-->
+    <div class="search">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 m-auto col-md-8 col-sm-11">
+                    <div class="search-width  text-center">
+                        <button type="button" class="close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <form class="search-form" action="search-page.html">
+                            <input type="search" value="" placeholder="What are you looking for?">
+                            <button type="submit" class="search-btn">search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <!--/-->
 </div>
-<div id="clone-image">
-    <div class="hero-translate"></div>
-</div>
-<div id="rotate-device"></div>
