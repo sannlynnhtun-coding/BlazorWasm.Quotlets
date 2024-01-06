@@ -8,6 +8,7 @@ namespace BlazorWasm.Quotlets.Pages
         {
             if (firstRender)
             {
+                await JsRuntime.InvokeVoidAsync("pageLoad");
                 await LoadJavaScript();
             }
         }

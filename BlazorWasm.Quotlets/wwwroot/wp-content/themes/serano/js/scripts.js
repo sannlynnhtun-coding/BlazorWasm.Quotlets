@@ -2093,5 +2093,29 @@ Function Blog
 
 
 var LoadViaAjax = window.LoadViaAjax;	
-	
+
+window.pageLoad = function () {
+	CleanupBeforeAjax();
+	FirstLoad();
+	ScrollEffects();
+	Sliders();
+	PageLoadActions();
+	FitThumbScreenGSAP();
+	ShowcaseCarousel();
+	ShowcasePortfolio();
+	ShowcaseSlider();
+	ShowcaseLists();
+	ShowcaseReverse();
+	ShowcaseGallery();
+	FitThumbScreenWEBGL();
+	LazyLoad();
+	Shortcodes();
+	JustifiedGrid();
+	Lightbox();
+	PlayVideo();
+	BlogLazyLoad();
+	Blog();
+	InitContactMap();
+	CustomFunction();
+}
 	
