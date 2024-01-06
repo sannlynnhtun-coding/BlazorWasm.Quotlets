@@ -1,63 +1,51 @@
 ﻿@page "/{UserName}"
 
-<section class="section  ">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-6 col-md-8 col-sm-11 m-auto">
-                <!--widget-author-->
-
-                <div class="widget-author  ">
-                    <div class="author-img">
-                        <a href="author.html" class="image">
-                            <img src="assets/img/author/1.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="author-content">
-                        <h6 class="name"> Hi, I'm David Smith</h6>
-                        <div class="btn-link">13 Articles</div>
-                        <p class="bio">
-                            I'm David Smith, husband and father ,
-                            I love Photography,travel and nature. I'm working as a writer and blogger with experience
-                            of 5 years until now.
-                        </p>
-                        <div class="social-media">
-                            <ul class="list-inline">
-                                <li>
-                                    <a href="#" class="color-facebook"><i class="fab fa-facebook"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="color-instagram"><i class="fab fa-instagram"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="color-twitter">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="color-youtube">
-                                        <i class="fab fa-youtube"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="color-pinterest"><i class="fab fa-pinterest"></i></a>
-                                </li>
-                            </ul>
+@if (UserData is not null)
+{
+    <section class="section  ">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-11 m-auto">
+                    <!--widget-author-->
+                    <div class="widget-author  ">
+                        <div class="author-img">
+                            <a href="author.html" class="image">
+                                <img src="@UserData.ImageUrl" alt="">
+                            </a>
+                        </div>
+                        <div class="author-content">
+                            <h6 class="name">@UserData.FullName</h6>
+                            @* <div class="btn-link">@@@UserData.UserName</div> *@
+                            <div class="social-media">
+                                <ul class="list-inline">
+                                    @foreach (var item in UserData.Links)
+                                    {
+                                        <li>
+                                            <a href="@item.Link" target="_blank" class="color-@item.Name"><i class="fab fa-@item.Name"></i></a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                            <NavLink href="" class="categorie">
+                                Back
+                            </NavLink>
                         </div>
                     </div>
+                    <!--/-->
                 </div>
-
-                <!--/-->
-
             </div>
         </div>
-    </div>
-</section>
+    </section>
+    <QuotletsList UserName="@UserName" />
+}
 @code {
     [Parameter]
     public string UserName { get; set; }
 
+    private UserModel? UserData;
+
     protected override async Task OnParametersSetAsync()
     {
-
+        UserData = await Service.GetUser(UserName);
     }
 }

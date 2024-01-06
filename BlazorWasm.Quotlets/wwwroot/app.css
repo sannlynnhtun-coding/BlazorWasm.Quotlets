@@ -63,3 +63,21 @@
 code {
     color: #c02d76;
 }
+
+.section {
+    margin-bottom: 50px;
+}
+
+.social-media {
+    margin-bottom: 15px;
+}
+
+    .social-media a {
+        width: 50px;
+        height: 50px;
+    }
+
+        .social-media a i {
+            font-size: 2rem;
+            line-height: 48px;
+        }

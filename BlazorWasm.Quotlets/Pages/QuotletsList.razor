@@ -117,15 +117,15 @@
 }
 
 @code {
-
     [Parameter]
-    public QuotletsResponseModel? QuotletsData { get; set; }
-    [Parameter]
-    public List<UserModel> UserData { get; set; }
+    public string? UserName { get; set; }
 
-    protected override Task OnParametersSetAsync()
+    private QuotletsResponseModel? QuotletsData { get; set; }
+    private List<UserModel> UserData { get; set; }
+
+    protected override async Task OnParametersSetAsync()
     {
-        return base.OnParametersSetAsync();
+        await Init(1);
     }
 
     private async Task LoadJavaScript()
@@ -145,7 +145,9 @@
 
     private async Task Init(int pageNo)
     {
-        QuotletsData = await Service.GetQuotlets(pageNo);
+        QuotletsData = UserName is null ?
+            await Service.GetQuotlets(pageNo) :
+            await Service.GetQuotlets(UserName, pageNo);
         UserData = await Service.GetUsers();
         StateHasChanged();
         await LoadJavaScript();
