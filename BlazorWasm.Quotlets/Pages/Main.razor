@@ -1,565 +1,136 @@
 ﻿@page "/"
+@using BlazorWasm.Quotlets.Services
+@using BlazorWasm.Quotlets.Models
 @inject IJSRuntime JsRuntime
-<!--slider-style1-->
-<div class="slider-style1">
-    <div class="swiper-wrapper">
-        <!--slider-1-->
-        <div class="slider-item  swiper-slide" style="background-image: url(assets/img/blog/2.jpg);">
-            <div class="container ">
-                <div class="row">
-                    <div class="col-lg-8 m-auto">
-                        <div class="slider-item-content">
-                            <div class="entry-cat ">
-                                <a href="blog-grid.html" class="categorie ">
-                                    Livestyle
-                                </a>
-                            </div>
-                            <h1 class="entry-title">
-                                <a href="post-default.html">5 Effective Ways I’m Finding Focus in a Busy Season of Life</a>
-                            </h1>
-                            <ul class="entry-meta list-inline">
-                                <li class="post-author-img"><a href="author.html"> <img src="assets/img/author/1.jpg" alt=""></a></li>
-                                <li class="post-author"><a href="author.html">David Smith</a> </li>
-                                <li class="post-date"> <span class="dot"></span>  February 10, 2022</li>
-                                <li class="post-timeread"> <span class="dot"></span> 15 min Read</li>
-                                <li class="post-comment"> <span class="dot"></span> 2 comments</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+@inject QuotletsService Service
 
-        <!--slider-2-->
-        <div class="slider-item  swiper-slide" style="background-image: url(assets/img/blog/1.jpg);">
-            <div class="container ">
-                <div class="row">
-                    <div class="col-lg-8 m-auto">
-                        <div class="slider-item-content">
-                            <div class="entry-cat ">
-                                <a href="blog-grid.html" class="categorie">
-                                    interior
-                                </a>
-                            </div>
-                            <h1 class="entry-title">
-                                <a href="post-default.html">7 Holiday Decor Ideas and Exactly What I Love About Each One</a>
-                            </h1>
-                            <ul class="entry-meta list-inline">
-                                <li class="post-author-img"><a href="author.html"> <img src="assets/img/author/1.jpg" alt=""></a></li>
-                                <li class="post-author"><a href="author.html">David Smith</a> </li>
-                                <li class="post-date"> <span class="dot"></span>  February 10, 2022</li>
-                                <li class="post-timeread"> <span class="dot"></span> 15 min Read</li>
-                                <li class="post-comment"> <span class="dot"></span> 2 comments</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!--slider-3-->
-        <div class="slider-item  swiper-slide" style="background-image: url(assets/img/blog/9.jpg);">
-            <div class="container ">
-                <div class="row">
-                    <div class="col-lg-8 m-auto">
-                        <div class="slider-item-content">
-                            <div class="entry-cat ">
-                                <a href="blog-grid.html" class="categorie">
-                                    food
-                                </a>
-                            </div>
-                            <h1 class="entry-title">
-                                <a href="post-default.html">
-                                    What Are Your Tips for Hosting an Easy Birthday Party?
-                                </a>
-                            </h1>
-                            <ul class="entry-meta list-inline">
-                                <li class="post-author-img"><a href="author.html"> <img src="assets/img/author/1.jpg" alt=""></a></li>
-                                <li class="post-author"><a href="author.html">David Smith</a> </li>
-                                <li class="post-date"> <span class="dot"></span>  February 10, 2022</li>
-                                <li class="post-timeread"> <span class="dot"></span> 15 min Read</li>
-                                <li class="post-comment"> <span class="dot"></span> 2 comments</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--slider-4-->
-        <div class="slider-item  swiper-slide" style="background-image: url(assets/img/blog/5.jpg);">
-            <div class="container ">
-                <div class="row">
-                    <div class="col-lg-8 m-auto">
-                        <div class="slider-item-content">
-                            <div class="entry-cat ">
-                                <a href="blog-grid.html" class="categorie">
-                                    travel
-                                </a>
-                            </div>
-                            <h1 class="entry-title">
-                                <a href="post-default.html">
-                                    Get Mhe Most Out of Iceland Mith our 10 Travel Mips
-                                </a>
-                            </h1>
-                            <ul class="entry-meta list-inline">
-                                <li class="post-author-img"><a href="author.html"> <img src="assets/img/author/1.jpg" alt=""></a></li>
-                                <li class="post-author"><a href="author.html">David Smith</a> </li>
-                                <li class="post-date"> <span class="dot"></span>  February 10, 2022</li>
-                                <li class="post-timeread"> <span class="dot"></span> 15 min Read</li>
-                                <li class="post-comment"> <span class="dot"></span> 2 comments</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--pagination-->
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-</div>
 
 <!--masonry-layout-->
-<section class="mt-90">
+<section>
     <div class="container-fluid">
         <div class="row masonry-items">
-            <!--Post-1-->
-            <div class="col-xl-4 col-lg-6 col-md-6 masonry-item">
-                <div class="post-card ">
-                    <div class="post-card-image">
-                        <a href="post-default.html">
-                            <img src="assets/img/blog/7.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="post-card-content">
-                        <div class="entry-cat">
-                            <a href="blog-grid.html" class="categorie"> food</a>
+
+            @if (QuotletsData is not null)
+            {
+                int totalCount = QuotletsData.Data.Count();
+                bool isFinish = false;
+
+                @for (int i = 0; i < totalCount; i++)
+                {
+                    List<QuotletsModel> quotletsList = new List<QuotletsModel>();
+                    QuotletsModel? item1 = null;
+                    QuotletsModel? item2 = null;
+                    QuotletsModel? item3 = null;
+
+                    item1 = QuotletsData.Data[i];
+                    quotletsList.Add(item1);
+                    int count = 0;
+                    if (i + 1 < totalCount)
+                    {
+                        item2 = QuotletsData.Data[i + 1];
+                        quotletsList.Add(item2);
+                        count++;
+                    }
+                    else
+                    {
+                        isFinish = true;
+                    }
+                    if (i + 2 < totalCount)
+                    {
+                        item3 = QuotletsData.Data[i + 2];
+                        quotletsList.Add(item3);
+                        count++;
+                    }
+                    else
+                    {
+                        isFinish = true;
+                    }
+                    i += count;
+                    if (item1 is not null)
+                    {
+                        <!--Post-1-->
+                        <div class="col-xl-4 col-lg-6 col-md-6 masonry-item">
+                            <div class="post-card ">
+                                <div class="post-card-image">
+                                    <a href="javascript:void(0);">
+                                        <img src="@item1.ImageUrl" alt="">
+                                    </a>
+                                </div>
+                                <div class="post-card-content">
+                                    <h5 class="entry-title">
+                                        @item1.Quotes
+                                    </h5>
+                                    <ul class="entry-meta list-inline">
+                                        <li class="post-author-img"><a href="author.html"> <img src="assets/img/author/1.jpg" alt=""></a></li>
+                                        <li class="post-author"><a href="author.html">David Smith</a> </li>
+                                        <li class="post-date"> <span class="dot"></span>  February 10, 2022</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-
-                        <h5 class="entry-title">
-                            <a href="post-default.html">What Are Your Tips for Hosting an Easy Birthday Party?</a>
-                        </h5>
-
-                        <div class="post-exerpt">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt distinctio... </p>
+                        <!--/-->
+                    }
+                    if (item2 is not null)
+                    {
+                        <!--Post-2-->
+                        <div class="col-xl-4 col-lg-6  col-md-6 masonry-item">
+                            <div class="post-card">
+                                <div class="post-card-image">
+                                    <a href="javascript:void(0);">
+                                        <img src="@item2.ImageUrl" alt="">
+                                    </a>
+                                </div>
+                                <div class="post-card-content">
+                                    <h5 class="entry-title">
+                                        @item2.Quotes
+                                    </h5>
+                                    <ul class="entry-meta list-inline">
+                                        <li class="post-author-img"><a href="author.html"> <img src="assets/img/author/1.jpg" alt=""></a></li>
+                                        <li class="post-author"><a href="author.html">David Smith</a> </li>
+                                        <li class="post-date"> <span class="dot"></span>  February 10, 2022</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
+                        <!--/-->
+                    }
+                    if (item3 is not null)
+                    {
+                        <!--Post-3-->
+                        <div class="col-xl-4 col-lg-6  col-md-6 masonry-item">
+                            <div class="post-card">
+                                <div class="post-card-image">
+                                    <a href="javascript:void(0);">
+                                        <img src="@item3.ImageUrl" alt="">
+                                    </a>
 
-                        <ul class="entry-meta list-inline">
-                            <li class="post-author-img"><a href="author.html"> <img src="assets/img/author/1.jpg" alt=""></a></li>
-                            <li class="post-author"><a href="author.html">David Smith</a> </li>
-                            <li class="post-date"> <span class="dot"></span>  February 10, 2022</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--/-->
-            <!--Post-2-->
-            <div class="col-xl-4 col-lg-6  col-md-6 masonry-item">
-                <div class="post-card">
-                    <div class="post-card-image">
-                        <a href="post-default.html">
-                            <img src="assets/img/blog/20.jpg" alt="">
-                        </a>
-
-                    </div>
-                    <div class="post-card-content">
-                        <div class="entry-cat">
-                            <a href="blog-grid.html" class="categorie"> travel</a>
+                                </div>
+                                <div class="post-card-content">
+                                    <h5 class="entry-title">
+                                        @item3.Quotes
+                                    </h5>
+                                    <ul class="entry-meta list-inline">
+                                        <li class="post-author-img"><a href="author.html"> <img src="assets/img/author/1.jpg" alt=""></a></li>
+                                        <li class="post-author"><a href="author.html">David Smith</a> </li>
+                                        <li class="post-date"> <span class="dot"></span>  February 10, 2022</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                        <h5 class="entry-title">
-                            <a href="post-default.html">get the most out of iceland with our 10 travel tips</a>
-                        </h5>
-
-                        <div class="post-exerpt">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt distinctio... </p>
-                        </div>
-
-                        <ul class="entry-meta list-inline">
-                            <li class="post-author-img"><a href="author.html"> <img src="assets/img/author/1.jpg" alt=""></a></li>
-                            <li class="post-author"><a href="author.html">David Smith</a> </li>
-                            <li class="post-date"> <span class="dot"></span>  February 10, 2022</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--/-->
-            <!--Post-3-->
-            <div class="col-xl-4 col-lg-6  col-md-6 masonry-item">
-                <div class="post-card">
-                    <div class="post-card-image">
-                        <a href="post-default.html">
-                            <img src="assets/img/blog/29.jpg" alt="">
-                        </a>
-
-                    </div>
-                    <div class="post-card-content">
-                        <div class="entry-cat">
-                            <a href="blog-grid.html" class="categorie"> interior</a>
-                        </div>
-
-                        <h5 class="entry-title">
-                            <a href="post-default.html">7 Holiday Decor Ideas and Exactly What I Love About Each One</a>
-                        </h5>
-
-                        <div class="post-exerpt">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt distinctio... </p>
-                        </div>
-
-                        <ul class="entry-meta list-inline">
-                            <li class="post-author-img"><a href="author.html"> <img src="assets/img/author/1.jpg" alt=""></a></li>
-                            <li class="post-author"><a href="author.html">David Smith</a> </li>
-                            <li class="post-date"> <span class="dot"></span>  February 10, 2022</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--/-->
-            <!--Post-4-->
-            <div class="col-xl-4 col-lg-6  col-md-6 masonry-item">
-                <div class="post-card">
-                    <div class="post-card-image">
-                        <a href="post-default.html">
-                            <img src="assets/img/blog/8.jpg" alt="">
-                        </a>
-
-                    </div>
-                    <div class="post-card-content">
-                        <div class="entry-cat">
-                            <a href="blog-grid.html" class="categorie"> travel</a>
-                        </div>
-
-                        <h5 class="entry-title">
-                            <a href="post-default.html">get the most out of iceland with our 10 travel tips</a>
-                        </h5>
-
-                        <div class="post-exerpt">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt distinctio... </p>
-                        </div>
-
-                        <ul class="entry-meta list-inline">
-                            <li class="post-author-img"><a href="author.html"> <img src="assets/img/author/1.jpg" alt=""></a></li>
-                            <li class="post-author"><a href="author.html">David Smith</a> </li>
-                            <li class="post-date"> <span class="dot"></span>  February 10, 2022</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--/-->
-            <!--Post-5-->
-            <div class="col-xl-4 col-lg-6  col-md-6 masonry-item">
-                <div class="post-card">
-                    <div class="post-card-image">
-                        <a href="post-default.html">
-                            <img src="assets/img/blog/9.jpg" alt="">
-                        </a>
-
-                    </div>
-                    <div class="post-card-content">
-                        <div class="entry-cat">
-                            <a href="blog-grid.html" class="categorie"> food</a>
-                        </div>
-
-                        <h5 class="entry-title">
-                            <a href="post-default.html">What Are Your Tips for Hosting an Easy Birthday Party?</a>
-                        </h5>
-
-                        <div class="post-exerpt">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt distinctio... </p>
-                        </div>
-
-                        <ul class="entry-meta list-inline">
-                            <li class="post-author-img"><a href="author.html"> <img src="assets/img/author/1.jpg" alt=""></a></li>
-                            <li class="post-author"><a href="author.html">David Smith</a> </li>
-                            <li class="post-date"> <span class="dot"></span>  February 10, 2022</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--/-->
-            <!--Post-6-->
-            <div class="col-xl-4 col-lg-6  col-md-6 masonry-item">
-                <div class="post-card">
-                    <div class="post-card-image">
-                        <a href="post-default.html">
-                            <img src="assets/img/blog/24.jpg" alt="">
-                        </a>
-
-                    </div>
-                    <div class="post-card-content">
-                        <div class="entry-cat">
-                            <a href="blog-grid.html" class="categorie"> interior</a>
-                        </div>
-
-                        <h5 class="entry-title">
-                            <a href="post-default.html">7 Holiday Decor Ideas and Exactly What I Love About Each One</a>
-                        </h5>
-
-                        <div class="post-exerpt">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt distinctio... </p>
-                        </div>
-
-                        <ul class="entry-meta list-inline">
-                            <li class="post-author-img"><a href="author.html"> <img src="assets/img/author/1.jpg" alt=""></a></li>
-                            <li class="post-author"><a href="author.html">David Smith</a> </li>
-                            <li class="post-date"> <span class="dot"></span>  February 10, 2022</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--/-->
-            <!--Post-7-->
-            <div class="col-xl-4 col-lg-6  col-md-6 masonry-item">
-                <div class="post-card">
-                    <div class="post-card-image">
-                        <a href="post-default.html">
-                            <img src="assets/img/blog/23.jpg" alt="">
-                        </a>
-
-                    </div>
-                    <div class="post-card-content">
-                        <div class="entry-cat">
-                            <a href="blog-grid.html" class="categorie"> travel</a>
-                        </div>
-
-                        <h5 class="entry-title">
-                            <a href="post-default.html">get the most out of iceland with our 10 travel tips</a>
-                        </h5>
-
-                        <div class="post-exerpt">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt distinctio... </p>
-                        </div>
-
-                        <ul class="entry-meta list-inline">
-                            <li class="post-author-img"><a href="author.html"> <img src="assets/img/author/1.jpg" alt=""></a></li>
-                            <li class="post-author"><a href="author.html">David Smith</a> </li>
-                            <li class="post-date"> <span class="dot"></span>  February 10, 2022</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--/-->
-            <!--Post-8-->
-            <div class="col-xl-4 col-lg-6  col-md-6 masonry-item">
-                <div class="post-card">
-                    <div class="post-card-image">
-                        <a href="post-default.html">
-                            <img src="assets/img/blog/1.jpg" alt="">
-                        </a>
-
-                    </div>
-                    <div class="post-card-content">
-                        <div class="entry-cat">
-                            <a href="blog-grid.html" class="categorie"> interior</a>
-                        </div>
-
-                        <h5 class="entry-title">
-                            <a href="post-default.html">
-                                7 Holiday Decor Ideas and Exactly What I Love About Each One
-                            </a>
-                        </h5>
-
-                        <div class="post-exerpt">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt distinctio... </p>
-                        </div>
-
-                        <ul class="entry-meta list-inline">
-                            <li class="post-author-img"><a href="author.html"> <img src="assets/img/author/1.jpg" alt=""></a></li>
-                            <li class="post-author"><a href="author.html">David Smith</a> </li>
-                            <li class="post-date"> <span class="dot"></span>  February 10, 2022</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--/-->
-            <!--Post-9-->
-            <div class="col-xl-4 col-lg-6  col-md-6 masonry-item">
-                <div class="post-card">
-                    <div class="post-card-image">
-                        <a href="post-default.html">
-                            <img src="assets/img/blog/16.jpg" alt="">
-                        </a>
-
-                    </div>
-                    <div class="post-card-content">
-                        <div class="entry-cat">
-                            <a href="blog-grid.html" class="categorie"> Livestyle</a>
-                        </div>
-
-                        <h5 class="entry-title">
-                            <a href="post-default.html">5 Effective Ways I’m Finding Focus in a Busy Season of Life</a>
-                        </h5>
-
-                        <div class="post-exerpt">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt distinctio... </p>
-                        </div>
-
-                        <ul class="entry-meta list-inline">
-                            <li class="post-author-img"><a href="author.html"> <img src="assets/img/author/1.jpg" alt=""></a></li>
-                            <li class="post-author"><a href="author.html">David Smith</a> </li>
-                            <li class="post-date"> <span class="dot"></span>  February 10, 2022</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--/-->
-            <!--Post-10-->
-            <div class="col-xl-4 col-lg-6  col-md-6 masonry-item">
-                <div class="post-card">
-                    <div class="post-card-image">
-                        <a href="post-default.html">
-                            <img src="assets/img/blog/25.jpg" alt="">
-                        </a>
-
-                    </div>
-                    <div class="post-card-content">
-                        <div class="entry-cat">
-                            <a href="blog-grid.html" class="categorie">fashion</a>
-                        </div>
-
-                        <h5 class="entry-title">
-                            <a href="post-default.html">Get the Most Out of Iceland with our 10 Travel Tips</a>
-                        </h5>
-
-                        <div class="post-exerpt">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt distinctio... </p>
-                        </div>
-
-                        <ul class="entry-meta list-inline">
-                            <li class="post-author-img"><a href="author.html"> <img src="assets/img/author/1.jpg" alt=""></a></li>
-                            <li class="post-author"><a href="author.html">David Smith</a> </li>
-                            <li class="post-date"> <span class="dot"></span>  February 10, 2022</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--/-->
-            <!--Post-11-->
-            <div class="col-xl-4 col-lg-6  col-md-6 masonry-item">
-                <div class="post-card">
-                    <div class="post-card-image">
-                        <a href="post-default.html">
-                            <img src="assets/img/blog/26.jpg" alt="">
-                        </a>
-
-                    </div>
-                    <div class="post-card-content">
-                        <div class="entry-cat">
-                            <a href="blog-grid.html" class="categorie"> fashion</a>
-                        </div>
-
-                        <h5 class="entry-title">
-                            <a href="post-default.html">Get the Most Out of Iceland with our 10 Travel Tips</a>
-                        </h5>
-
-                        <div class="post-exerpt">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt distinctio... </p>
-                        </div>
-
-                        <ul class="entry-meta list-inline">
-                            <li class="post-author-img"><a href="author.html"> <img src="assets/img/author/1.jpg" alt=""></a></li>
-                            <li class="post-author"><a href="author.html">David Smith</a> </li>
-                            <li class="post-date"> <span class="dot"></span>  February 10, 2022</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--/-->
-            <!--Post-12-->
-            <div class="col-xl-4 col-lg-6  col-md-6 masonry-item ">
-                <div class="post-card">
-                    <div class="post-card-image">
-                        <a href="post-default.html">
-                            <img src="assets/img/blog/12.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="post-card-content">
-                        <div class="entry-cat">
-                            <a href="blog-grid.html" class="categorie">livestyle</a>
-                        </div>
-
-                        <h5 class="entry-title">
-                            <a href="post-default.html">5 Effective Ways I’m Finding Focus in a Busy Season of Life</a>
-                        </h5>
-
-                        <div class="post-exerpt">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt distinctio... </p>
-                        </div>
-
-                        <ul class="entry-meta list-inline">
-                            <li class="post-author-img"><a href="author.html"> <img src="assets/img/author/1.jpg" alt=""></a></li>
-                            <li class="post-author"><a href="author.html">David Smith</a> </li>
-                            <li class="post-date"> <span class="dot"></span>  February 10, 2022</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--/-->
-        </div>
-
-        <!--pagination-->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="pagination ">
-                    <ul class="list-inline">
-                        <li class="active"> <a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i></a></li>
-                    </ul>
-                </div>
-            </div>
+                        <!--/-->
+                    }
+                }
+            }
         </div>
     </div>
 </section>
 <!--/-->
-<!--newslettre-->
-<section class="newslettre">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-6 col-md-10 col-sm-11 m-auto">
-                <div class="newslettre-width text-center">
-                    <div class="newslettre-info">
-                        <h3 class="title">
-                            Get The Best Blog Stories into Your inbox!
-                        </h3>
-                        <p> Sign up for free and be the first to get notified about new posts. </p>
-                    </div>
-                    <form action="#" class="newslettre-form">
-                        <div class="form-flex">
-                            <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Your email adress" required="required">
-                            </div>
-                            <button class="submit-btn" type="submit">Subscribe</button>
-                        </div>
-                    </form>
-                    <div class="social-icones">
-                        <ul class="list-inline">
-                            <li>
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>Facebook
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fab fa-twitter"></i>Twitter
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fab fa-instagram"></i>Instagram
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fab fa-youtube"></i>Youtube
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+@if(QuotletsData?.TotalPage > 0)
+{
+    <div class="text-center" style="margin-top: -40px; padding-bottom: 40px;">
+            <MudPagination SelectedChanged="PageChanged" ShowFirstButton="true" ShowLastButton="true"
+                           Count="@(Convert.ToInt32(QuotletsData?.TotalPage))"
+                           Class="mt-0 pt-0" />
         </div>
-    </div>
-</section>
+}
