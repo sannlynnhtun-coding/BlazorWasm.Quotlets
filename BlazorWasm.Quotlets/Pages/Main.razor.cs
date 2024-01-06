@@ -1,5 +1,6 @@
 ﻿using BlazorWasm.Quotlets.Models;
 using Microsoft.JSInterop;
+using MudBlazor;
 
 namespace BlazorWasm.Quotlets.Pages
 {
@@ -10,25 +11,26 @@ namespace BlazorWasm.Quotlets.Pages
         {
             if (firstRender)
             {
-                await GetQuotlets();
-                StateHasChanged();
-                await LoadJavaScript();
+                await Init(1);
             }
         }
 
         private async Task LoadJavaScript()
         {
             await Task.Delay(1000);
-            await JsRuntime.InvokeVoidAsync("loadJs", "assets/js/switch.js");
-            await JsRuntime.InvokeVoidAsync("loadJs", "assets/js/main.js");
-        }
-
-        private async Task GetQuotlets(int pageNo = 1)
-        {
-            QuotletsData = await Service.GetQuotlets(pageNo);
+            await JsRuntime.InvokeVoidAsync("loadJs", new string[] 
+            {
+                "assets/js/switch.js",
+                "assets/js/main.js"
+            }.ToList());
         }
 
         private async Task PageChanged(int pageNo)
+        {
+            await Init(pageNo);
+        }
+
+        private async Task Init(int pageNo)
         {
             QuotletsData = await Service.GetQuotlets(pageNo);
             StateHasChanged();

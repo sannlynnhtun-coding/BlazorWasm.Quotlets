@@ -3,8 +3,7 @@
 @using BlazorWasm.Quotlets.Models
 @inject IJSRuntime JsRuntime
 @inject QuotletsService Service
-
-
+@using MudBlazor
 
 <!--masonry-layout-->
 <section>
@@ -126,11 +125,12 @@
     </div>
 </section>
 <!--/-->
-@if(QuotletsData?.TotalPage > 0)
+@if (QuotletsData?.TotalPage > 0)
 {
     <div class="text-center" style="margin-top: -40px; padding-bottom: 40px;">
-            <MudPagination SelectedChanged="PageChanged" ShowFirstButton="true" ShowLastButton="true"
-                           Count="@(Convert.ToInt32(QuotletsData?.TotalPage))"
-                           Class="mt-0 pt-0" />
-        </div>
+        <MudPagination SelectedChanged="PageChanged" ShowFirstButton="true" ShowLastButton="true"
+                       Count="@(Convert.ToInt32(QuotletsData?.TotalPage))"
+                       Class="mt-0 pt-0">
+        </MudPagination>
+    </div>
 }
