@@ -15,13 +15,13 @@ namespace BlazorWasm.Quotlets.Services
             (int pageNo = 1,int pageSize = 12)
         {
            var quotList = await GetData<QuotletsModel>("quotlets/Quotlets.json");
-            var count = quotList.Count();
+            var count = quotList!.Count();
             var totalPage = count / pageSize;
             if (totalPage % pageSize == 0)
                 totalPage++;
             var model = new QuotletsResponseModel
             {
-                Data = quotList.Skip((pageNo-1) * pageSize).Take(pageSize).ToList(),
+                Data = quotList!.Skip((pageNo-1) * pageSize).Take(pageSize).ToList(),
                 TotalPage = totalPage,
             };
             return model;
